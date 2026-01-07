@@ -17,7 +17,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #FFA800;
+  background-color: #DA9100;
   color: white;
   padding: 0 10px;
   text-align: center;
@@ -37,13 +37,13 @@ body {
   padding: 10px 20px;
   color: white;
   text-decoration: none;
-  background-color: #FFA800;
+  background-color: #DA9100;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .nav-item a:hover {
   text-decoration: none;
-  color: #FFA800;
+  color: #DA9100;
   background-color: white;
 }
 
