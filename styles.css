@@ -91,6 +91,10 @@ p {
   padding-right: 5%;
 }
 
+.emailLink {
+  color: #DA9100;
+}
+
 h3 {
   text-align: left;
   padding-left: 5%;
