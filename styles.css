@@ -1,23 +1,97 @@
+/* styles.css */
+
+/* Affects the whole website */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Default site font: prefer Bahnschrift (Windows). */
+body {
+  font-family: "Bahnschrift", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Styling for the navigation bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #FFA800;
+  color: white;
+  padding: 0 10px;
+  text-align: center;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* Styling for the navigation bar items */
+.nav-item {
+  padding: 0;
+}
+
+.nav-item a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #FFA800;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.nav-item a:hover {
+  text-decoration: none;
+  color: #FFA800;
+  background-color: white;
+}
+
+/* Styling for section tags */
 section {
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
   scroll-snap-align: start;
+  gap: 5%;
 }
 
 .container {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
-.container img {
-    height: 25vh;
+.greenSection {
+  background-color: #071913;
+  color: white;
+}
+
+.redSection {
+  background-color: #8B0000;
+  color: white;
+}
+
+/* Styling for image tags */
+img {
+  max-width: 300px;
+  height: auto;
+  display: block;
+  justify-self: center;
+}
+
+/* Styling for website text tags */
+p {
+  text-align: left;
+  padding: 1%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+h3 {
+  text-align: left;
+  padding-left: 5%;
 }
