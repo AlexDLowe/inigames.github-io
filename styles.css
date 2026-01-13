@@ -53,8 +53,9 @@ body {
 
 /* Styling for section tags */
 section {
-  min-height: calc(100vh - var(--nav-height));
-  padding: 2rem 1rem;
+  /* Ensure each section occupies the full viewport so the next section's background can't show through */
+  min-height: 100vh;
+  padding: calc(var(--nav-height) + 2rem) 1rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,9 +67,10 @@ section {
 
 .container {
   scroll-snap-type: y mandatory;
+  scroll-padding-top: var(--nav-height);
   overflow-y: auto;
-  height: calc(100vh - var(--nav-height));
-  padding-top: var(--nav-height);
+  height: 100vh;
+  padding-top: 0;
 }
 
 .greenSection {
@@ -128,20 +130,20 @@ h3 {
   }
   section {
     gap: 3%;
-    padding: 1.5rem 1rem;
-    min-height: auto;
+    padding: calc(var(--nav-height) + 1.5rem) 1rem 1rem;
+    min-height: 100vh;
   }
   img {
     max-width: 240px;
   }
   h2 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
   h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   p {
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     padding-left: 4%;
     padding-right: 4%;
   }
