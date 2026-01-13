@@ -13,10 +13,14 @@ body {
 }
 
 /* Styling for the navigation bar */
+:root {
+  --nav-height: 56px;
+}
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
+  height: var(--nav-height);
   background-color: #DA9100;
   color: white;
   padding: 0 10px;
@@ -49,7 +53,8 @@ body {
 
 /* Styling for section tags */
 section {
-  height: 100vh;
+  min-height: calc(100vh - var(--nav-height));
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,8 +66,9 @@ section {
 
 .container {
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
+  overflow-y: auto;
+  height: calc(100vh - var(--nav-height));
+  padding-top: var(--nav-height);
 }
 
 .greenSection {
@@ -77,7 +83,8 @@ section {
 
 /* Styling for image tags */
 img {
-  max-width: 300px;
+  max-width: min(300px, 80%);
+  width: 100%;
   height: auto;
   display: block;
   justify-self: center;
@@ -98,4 +105,51 @@ p {
 h3 {
   text-align: left;
   padding-left: 5%;
+}
+
+/* Grid for game cards (desktop first) */
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 5%;
+}
+
+/* Responsive tweaks for small screens */
+@media (max-width: 600px) {
+  :root {
+    --nav-height: 48px;
+  }
+  .nav-item a {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+  }
+  section {
+    gap: 3%;
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+  img {
+    max-width: 240px;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
+  h3 {
+    font-size: 1rem;
+  }
+  p {
+    font-size: 0.95rem;
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 1rem;
+  }
 }
