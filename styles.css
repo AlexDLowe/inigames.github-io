@@ -92,6 +92,10 @@ img {
   justify-self: center;
 }
 
+.roundImage {
+  border-radius: 50%;
+}
+
 /* Styling for website text tags */
 p {
   text-align: left;
@@ -104,7 +108,7 @@ p {
   color: #DA9100;
 }
 
-h3 {
+.gameCardTitle{
   text-align: left;
   padding-left: 5%;
 }
