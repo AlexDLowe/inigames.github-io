@@ -104,6 +104,10 @@ p {
   padding-right: 5%;
 }
 
+h2 {
+  padding-bottom: 1rem;
+}
+
 .emailLink {
   color: #DA9100;
 }
@@ -111,6 +115,16 @@ p {
 .gameCardTitle{
   text-align: left;
   padding-left: 5%;
+}
+
+/* Grid for vision/mission statements (desktop first) */
+.visionMissionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 5%;
 }
 
 /* Grid for game cards (desktop first) */
@@ -150,6 +164,13 @@ p {
     font-size: 0.75rem;
     padding-left: 4%;
     padding-right: 4%;
+  }
+  .visionMissionGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    max-width: 700px;
+    padding: 0 1rem;
   }
   .games-grid {
     grid-template-columns: 1fr;
