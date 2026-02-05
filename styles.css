@@ -128,7 +128,7 @@ h2 {
 }
 
 /* Grid for game cards (desktop first) */
-.games-grid {
+.threeGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
@@ -172,7 +172,7 @@ h2 {
     max-width: 700px;
     padding: 0 1rem;
   }
-  .games-grid {
+  .threeGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
     width: 100%;
