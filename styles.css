@@ -7,6 +7,13 @@
   box-sizing: border-box;
 }
 
+:root {
+  --siteRed: #D40924;
+  --siteGold: #EBA530;
+  --siteGreen: #1B9E77;
+  --siteWhite: #F9F0E1;
+}
+
 /* Default site font: prefer Bahnschrift (Windows). */
 body {
   font-family: "Bahnschrift", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -21,14 +28,34 @@ body {
   top: 0;
   width: 100%;
   height: var(--nav-height);
-  background-color: #DA9100;
-  color: white;
+  background-color: var(--siteGold);
+  color: var(--siteWhite);
   padding: 0 10px;
   text-align: center;
   z-index: 1000;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  padding-left: 10px;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+}
+
+.navbar-title {
+  font-weight: bold;
+  color: var(--siteWhite);
+  font-size: 16px;
 }
 
 /* Styling for the navigation bar items */
@@ -39,144 +66,490 @@ body {
 .nav-item a {
   display: block;
   padding: 10px 20px;
-  color: white;
+  color: var(--siteWhite);
   text-decoration: none;
-  background-color: #DA9100;
+  background-color: var(--siteGold);
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .nav-item a:hover {
   text-decoration: none;
-  color: #DA9100;
-  background-color: white;
+  color: var(--siteGold);
+  background-color: var(--siteWhite);
 }
 
-/* Styling for section tags */
-section {
-  /* Ensure each section occupies the full viewport so the next section's background can't show through */
-  min-height: 100vh;
-  padding: calc(var(--nav-height) + 2rem) 1rem 2rem;
+/* Hero Container with parallax background */
+.heroContainer {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-top: var(--nav-height);
+}
+
+/* Parallax background layer placed behind content */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  background-image: url('assets/siteHeroBackground.png');
+  background-size: cover;
+  background-position: center;
+  transform: translateY(0);
+  will-change: transform;
+  z-index: 0;
+}
+
+.whiteBG {
+  position: relative;
+  z-index: 1;
+}
+
+/* Intro Section with vertical centering and left alignment */
+.introSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  scroll-snap-align: start;
-  gap: 5%;
+  align-items: flex-start;
+  width: 50vw;
+  height: 100%;
+  padding: 5rem 40px 40px 40px;
+  gap: 25px;
 }
 
-.container {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: var(--nav-height);
-  overflow-y: auto;
+.whiteBG {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
   height: 100vh;
-  padding-top: 0;
+  width: 100vw;
 }
 
-.greenSection {
-  background-color: #071913;
-  color: white;
-}
-
-.redSection {
-  background-color: #8B0000;
-  color: white;
-}
-
-/* Styling for image tags */
-img {
-  max-width: min(300px, 80%);
-  width: 100%;
-  height: auto;
-  display: block;
-  justify-self: center;
-}
-
-.roundImage {
-  border-radius: 50%;
-}
-
-/* Styling for website text tags */
 p {
-  text-align: left;
-  padding: 1%;
-  padding-left: 5%;
-  padding-right: 5%;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 6rem;
 }
 
 h2 {
-  padding-bottom: 1rem;
+  font-size: 3rem;
+  color: var(--siteRed);
 }
 
-.emailLink {
-  color: #DA9100;
+h3 {
+  font-size: 1.5rem;
 }
 
-.gameCardTitle{
+h4 {
+  font-size: 1rem;
+}
+
+.genericContainerWhite {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center children horizontally */
+  justify-content: space-evenly; /* distribute children evenly vertically */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--siteWhite);
+  gap: 10px;
+}
+
+.genericContainerRed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--siteRed);
+  gap: 10px;
+}
+
+.genericContainerGreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--siteGreen);
+  gap: 10px;
+}
+
+.genericTextSection {
+  max-width: 800px;
+  text-align: center;
+  gap: 10px;
+}
+
+.fullContainerWhite .genericTextSection,
+.fullContainerWhite .genericTextSection * {
+  color: black;
+}
+
+.fullContainerRed,
+.fullContainerRed * {
+  color: white;
+}
+
+.fullContainerGreen,
+.fullContainerGreen * {
+  color: white;
+}
+
+.genericContainerWhite .genericTextSection,
+.genericContainerWhite .genericTextSection * {
+  color: black;
+}
+
+.genericContainerWhite img {
+  max-width: 90%;
+  max-height: 50vh;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+.genericContainerRed,
+.genericContainerRed * {
+  color: white;
+}
+
+.genericContainerGreen,
+.genericContainerGreen * {
+  color: white;
+}
+
+/* Add 5% padding to each direct child of genericTextSection only */
+.genericTextSection > * {
+  padding: 2.5%;
+  box-sizing: border-box;
+}
+
+.founderDesktopImage {
+  display: block;
+}
+
+.founderMobileInfo {
+  display: none;
+}
+
+.founderMobileInfo ul {
+  list-style: none;
   text-align: left;
-  padding-left: 5%;
 }
 
-/* Grid for vision/mission statements (desktop first) */
-.visionMissionGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1000px;
-  padding: 0 5%;
+.founderMobileInfo li {
+  padding: 8px 0;
 }
 
-/* Grid for game cards (desktop first) */
-.threeGrid {
+/* Game grid and card styles */
+.gameGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  width: 100%;
-  max-width: 1000px;
-  padding: 0 5%;
+  gap: 20px;
+  padding: 20px;
+  align-items: start;
 }
 
-/* Responsive tweaks for small screens */
-@media (max-width: 600px) {
-  :root {
-    --nav-height: 48px;
+.gameCard {
+  background-color: var(--siteGreen);
+  color: black;
+  border: 2px solid black;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 33vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.gameCard {
+  align-items: center;
+  text-align: center;
+}
+
+.gameCardTitle {
+  color: black;
+  margin-bottom: 8px;
+  font-size: 1.25rem;
+}
+
+.gameCardText {
+  color: black;
+  font-size: 1rem;
+}
+
+.fourByOneGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.twoByOneGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.gridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gridItemImg {
+  width: 50%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  border-radius: 0;
+}
+
+.twoByOneGrid .gridItemImg {
+  font-size: 6rem;
+  margin-bottom: 6px;
+}
+
+.gridItemTitle {
+  margin-bottom: 12px;
+}
+
+/* White button with black rounded border and arrow */
+.wBButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--siteWhite);
+  color: #000000;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: none;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.wBButton::after {
+  content: "→";
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 1.05em;
+  line-height: 1;
+}
+
+.wBButton:hover {
+  background: #000000;
+  color: var(--siteWhite);
+  border-color: var(--siteWhite);
+}
+
+/* Footer styling */
+.siteFooter {
+  background-color: #000000;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLogo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.footerColumn p {
+  color: white;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footerHeading {
+  color: var(--siteGold);
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLinks a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--siteGold);
+}
+
+.footerContactLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.footerContactLink:hover {
+  color: var(--siteGold);
+}
+
+.footerSocialIcons {
+  display: flex;
+  gap: 12px;
+}
+
+.footerSocialIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.footerSocialIcon i {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.footerSocialIcon.linkedin {
+  background-color: var(--siteRed);
+}
+
+.footerSocialIcon.instagram {
+  background-color: var(--siteRed);
+}
+
+.footerSocialIcon:hover {
+  background-color: #b3071c;
+}
+
+/* Mobile: turn grid into a horizontal carousel using scroll-snap */
+@media (max-width: 768px) {
+  .gameGrid {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
-  .nav-item a {
-    padding: 8px 12px;
-    font-size: 0.95rem;
+
+  .gameGrid::-webkit-scrollbar {
+    display: none;
   }
-  section {
-    gap: 3%;
-    padding: calc(var(--nav-height) + 1.5rem) 1rem 1rem;
-    min-height: 100vh;
+
+  .gameCard {
+    min-width: 80%;
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    margin-right: 8px;
   }
-  img {
-    max-width: 240px;
+
+  .gameGrid::after { content: ''; flex: 0 0 8px; }
+
+  .introSection {width: auto;}
+
+  .fourByOneGrid {
+    grid-template-columns: none;
   }
-  h2 {
-    font-size: 1.1rem;
+
+  .twoByOneGrid {
+    grid-template-columns: none;
   }
-  h3 {
-    font-size: 0.9rem;
+
+  .founderDesktopImage {
+    display: none;
   }
-  p {
-    font-size: 0.75rem;
-    padding-left: 4%;
-    padding-right: 4%;
-  }
-  .visionMissionGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+
+  .founderMobileInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     width: 100%;
-    max-width: 700px;
-    padding: 0 1rem;
+    gap: 10px;
   }
-  .threeGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    width: 100%;
-    max-width: 700px;
-    padding: 0 1rem;
+
+  .founderMobileInfo img {
+    max-width: 200px;
+    margin-bottom: 20px;
+    border-radius: 50%;
   }
 }
+
+  /* Full containers: full viewport, centered horizontally, evenly spaced vertically */
+  .fullContainerWhite {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center children horizontally */
+    justify-content: space-evenly; /* distribute children evenly vertically */
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--siteWhite);
+  }
+
+  .fullContainerRed {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--siteRed);
+  }
+
+  .fullContainerGreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--siteGreen);
+  }
+
+  .gameGrid {
+    width: 100%;
+    max-width: 1200px;
+  }
