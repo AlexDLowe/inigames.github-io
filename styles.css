@@ -553,3 +553,7 @@ h4 {
     width: 100%;
     max-width: 1200px;
   }
+
+  .fullContainerWhite, .fullContainerGreen, .fullContainerRed {
+    height: auto;
+  }
